@@ -2,6 +2,22 @@
   padding-top: 6rem;
 }
 
+.portfolio-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 50% 60% at 20% 50%, rgba(34, 197, 94, 0.04), transparent 70%),
+    radial-gradient(ellipse 40% 60% at 70% 30%, rgba(139, 92, 246, 0.04), transparent),
+    radial-gradient(ellipse 30% 50% at 50% 70%, rgba(132, 204, 22, 0.03), transparent);
+  pointer-events: none;
+}
+
 /* Brand sections */
 .portfolio-brand__header {
   margin-bottom: 3rem;

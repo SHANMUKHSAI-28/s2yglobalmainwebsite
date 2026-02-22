@@ -124,3 +124,44 @@ h1, h2, h3, h4, h5, h6 {
   outline: 2px solid var(--color-gold);
   outline-offset: 2px;
 }
+
+/* Smooth text rendering */
+body {
+  text-rendering: optimizeLegibility;
+}
+
+/* Section label animated underline */
+.section-label {
+  position: relative;
+  display: inline-block;
+}
+
+.section-label::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 30px;
+  height: 1px;
+  background: var(--color-gold);
+  transition: width 0.6s ease;
+}
+
+.section:hover .section-label::after,
+.section-label:hover::after {
+  width: 60px;
+}
+
+/* text utilities */
+.text-center { text-align: center; }
+
+/* Subtle page transitions */
+main {
+  min-height: 100vh;
+}
+
+/* Glassy card hover utilities */
+.glass-hover {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}

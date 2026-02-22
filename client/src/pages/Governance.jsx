@@ -1,6 +1,10 @@
 import { motion } from 'framer-motion';
 import { FileText, MapPin, Building2, Scale, CheckCircle } from 'lucide-react';
 import SectionHeader from '../components/SectionHeader';
+import SpotlightCard from '../components/SpotlightCard';
+import GlowDivider from '../components/GlowDivider';
+import TextReveal from '../components/TextReveal';
+import GradientBorder from '../components/GradientBorder';
 import './Governance.css';
 
 const compliancePrinciples = [
@@ -30,7 +34,7 @@ export default function Governance() {
           >
             <p className="section-label">Governance & Structure</p>
             <h1 className="section-title" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
-              Structured for Trust. Built for Accountability.
+              <TextReveal delay={0.2}>Structured for Trust. Built for Accountability.</TextReveal>
             </h1>
             <p className="section-subtitle" style={{ maxWidth: '700px' }}>
               S2Y Global operates with institutional-grade governance standards. Transparency,
@@ -39,6 +43,8 @@ export default function Governance() {
           </motion.div>
         </div>
       </section>
+
+      <GlowDivider />
 
       <section className="section governance-info">
         <div className="container">
@@ -71,16 +77,17 @@ export default function Governance() {
             ].map((item, i) => (
               <motion.div
                 key={i}
-                className="governance-info__card"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
               >
-                <div className="governance-info__icon">{item.icon}</div>
-                <span className="governance-info__label">{item.label}</span>
-                <h3 className="governance-info__value">{item.value}</h3>
-                <p className="governance-info__sub">{item.sub}</p>
+                <SpotlightCard className="governance-info__card">
+                  <div className="governance-info__icon">{item.icon}</div>
+                  <span className="governance-info__label">{item.label}</span>
+                  <h3 className="governance-info__value">{item.value}</h3>
+                  <p className="governance-info__sub">{item.sub}</p>
+                </SpotlightCard>
               </motion.div>
             ))}
           </div>

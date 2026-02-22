@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Calendar } from 'lucide-react';
 import SectionHeader from '../components/SectionHeader';
+import TextReveal from '../components/TextReveal';
+import GlowDivider from '../components/GlowDivider';
+import SpotlightCard from '../components/SpotlightCard';
 import './Media.css';
 
 const updates = [
@@ -59,7 +62,7 @@ export default function Media() {
           >
             <p className="section-label">Media & Updates</p>
             <h1 className="section-title" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
-              Latest From S2Y Global
+              <TextReveal delay={0.2}>Latest From S2Y Global</TextReveal>
             </h1>
             <p className="section-subtitle" style={{ maxWidth: '700px' }}>
               Follow our progress as we build integrated infrastructure across food, agriculture,
@@ -79,7 +82,8 @@ export default function Media() {
             viewport={{ once: true }}
           >
             {updates.map((update, i) => (
-              <motion.article key={i} className="media-card" variants={itemVar}>
+              <motion.article key={i} variants={itemVar}>
+                <SpotlightCard className="media-card">
                 <div className="media-card__meta">
                   <span className="media-card__date">
                     <Calendar size={14} />
@@ -91,6 +95,7 @@ export default function Media() {
                 </div>
                 <h3 className="media-card__title">{update.title}</h3>
                 <p className="media-card__desc">{update.description}</p>
+                </SpotlightCard>
               </motion.article>
             ))}
           </motion.div>

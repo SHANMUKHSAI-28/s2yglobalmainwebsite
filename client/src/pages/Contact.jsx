@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, MapPin, Phone, Send, ArrowRight } from 'lucide-react';
 import SectionHeader from '../components/SectionHeader';
+import TextReveal from '../components/TextReveal';
+import GlowDivider from '../components/GlowDivider';
 import './Contact.css';
 
 export default function Contact() {
@@ -36,7 +38,7 @@ export default function Contact() {
           >
             <p className="section-label">Get In Touch</p>
             <h1 className="section-title" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
-              Let's Build Something Together
+              <TextReveal delay={0.2}>Let's Build Something Together</TextReveal>
             </h1>
             <p className="section-subtitle" style={{ maxWidth: '700px' }}>
               Whether you are a potential partner, vendor, talent, or investor —

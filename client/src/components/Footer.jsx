@@ -7,6 +7,7 @@ import {
   MapPin, 
   ArrowUpRight 
 } from 'lucide-react';
+import GlowDivider from './GlowDivider';
 import './Footer.css';
 
 const footerLinks = {
@@ -29,12 +30,28 @@ const footerLinks = {
   ],
 };
 
+const containerVar = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.08 } },
+};
+const itemVar = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
 export default function Footer() {
   return (
     <footer className="footer">
+      <GlowDivider />
       <div className="container">
-        <div className="footer__top">
-          <div className="footer__brand">
+        <motion.div
+          className="footer__top"
+          variants={containerVar}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
+        >
+          <motion.div className="footer__brand" variants={itemVar}>
             <Link to="/" className="footer__logo">
               <span className="footer__logo-s2y">S2Y</span>
               <span className="footer__logo-global">Global</span>
@@ -53,10 +70,10 @@ export default function Footer() {
                 <Mail size={18} />
               </a>
             </div>
-          </div>
+          </motion.div>
 
           {Object.entries(footerLinks).map(([key, links]) => (
-            <div key={key} className="footer__col">
+            <motion.div key={key} className="footer__col" variants={itemVar}>
               <h4 className="footer__col-title">{key}</h4>
               <ul className="footer__col-links">
                 {links.map((link) => (
@@ -68,13 +85,19 @@ export default function Footer() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         <div className="footer__divider" />
 
-        <div className="footer__bottom">
+        <motion.div
+          className="footer__bottom"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+        >
           <div className="footer__location">
             <MapPin size={14} />
             <span>Vijayawada, Andhra Pradesh, India</span>
@@ -82,7 +105,7 @@ export default function Footer() {
           <p className="footer__copy">
             &copy; {new Date().getFullYear()} S2Y Global Private Limited. All rights reserved.
           </p>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );

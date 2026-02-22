@@ -2,6 +2,10 @@ import { motion } from 'framer-motion';
 import { MapPin, Briefcase, Code2, TrendingUp, Users } from 'lucide-react';
 import SectionHeader from '../components/SectionHeader';
 import Button from '../components/Button';
+import SpotlightCard from '../components/SpotlightCard';
+import GlowDivider from '../components/GlowDivider';
+import MagneticButton from '../components/MagneticButton';
+import TextReveal from '../components/TextReveal';
 import './Careers.css';
 
 const openings = [
@@ -67,7 +71,7 @@ export default function Careers() {
           >
             <p className="section-label">Careers at S2Y Global</p>
             <h1 className="section-title" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
-              Build Infrastructure That Matters
+              <TextReveal delay={0.2}>Build Infrastructure That Matters</TextReveal>
             </h1>
             <p className="section-subtitle" style={{ maxWidth: '700px' }}>
               Join a founder-led team building integrated technology platforms across food, agriculture,
@@ -92,9 +96,11 @@ export default function Careers() {
             viewport={{ once: true }}
           >
             {values.map((v, i) => (
-              <motion.div key={i} className="careers-value" variants={itemVar}>
-                <h4>{v.title}</h4>
-                <p>{v.desc}</p>
+              <motion.div key={i} variants={itemVar}>
+                <SpotlightCard className="careers-value">
+                  <h4>{v.title}</h4>
+                  <p>{v.desc}</p>
+                </SpotlightCard>
               </motion.div>
             ))}
           </motion.div>
@@ -148,7 +154,7 @@ export default function Careers() {
               We are always open to hearing from exceptional people. Send us your profile and tell
               us what you want to build.
             </p>
-            <Button to="/contact" variant="primary" icon>Get In Touch</Button>
+            <MagneticButton><Button to="/contact" variant="primary" icon>Get In Touch</Button></MagneticButton>
           </motion.div>
         </div>
       </section>

@@ -2,6 +2,13 @@ import { motion } from 'framer-motion';
 import { Calendar, MapPin, Users, Target, Building, TrendingUp } from 'lucide-react';
 import SectionHeader from '../components/SectionHeader';
 import Button from '../components/Button';
+import TiltCard from '../components/TiltCard';
+import GlowDivider from '../components/GlowDivider';
+import MagneticButton from '../components/MagneticButton';
+import TextReveal from '../components/TextReveal';
+import SpotlightCard from '../components/SpotlightCard';
+import GradientBorder from '../components/GradientBorder';
+import Marquee from '../components/Marquee';
 import './About.css';
 
 const timeline = [
@@ -40,7 +47,9 @@ export default function About() {
           >
             <p className="section-label">About S2Y Global</p>
             <h1 className="section-title" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
-              A Technology Holding Company Building Integrated Infrastructure Platforms
+              <TextReveal delay={0.2}>
+                A Technology Holding Company Building Integrated Infrastructure Platforms
+              </TextReveal>
             </h1>
             <p className="section-subtitle" style={{ maxWidth: '720px' }}>
               S2Y Global is a technology holding company building integrated infrastructure
@@ -50,6 +59,8 @@ export default function About() {
           </motion.div>
         </div>
       </section>
+
+      <GlowDivider />
 
       {/* Key facts */}
       <section className="about-facts section">
@@ -67,41 +78,49 @@ export default function About() {
               { icon: <Users size={20} />, label: 'Structure', value: 'Founder-Led' },
               { icon: <Building size={20} />, label: 'Type', value: 'Private Limited' },
             ].map((fact, i) => (
-              <motion.div key={i} className="about-fact" variants={itemVar}>
-                <div className="about-fact__icon">{fact.icon}</div>
-                <span className="about-fact__label">{fact.label}</span>
-                <span className="about-fact__value">{fact.value}</span>
+              <motion.div key={i} variants={itemVar}>
+                <SpotlightCard className="about-fact">
+                  <div className="about-fact__icon">{fact.icon}</div>
+                  <span className="about-fact__label">{fact.label}</span>
+                  <span className="about-fact__value">{fact.value}</span>
+                </SpotlightCard>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </section>
 
+      <GlowDivider />
+
       {/* Positioning */}
       <section className="section about-positioning">
         <div className="container">
           <div className="about-positioning__inner">
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-            >
-              <SectionHeader
-                label="Our Positioning"
-                title="Not a Startup. An Infrastructure Builder."
-              />
-              <p className="about-positioning__text">
-                We do not chase viral growth or optimize for vanity metrics. S2Y Global is
-                building integrated, vertically controlled platforms designed to become essential
-                infrastructure — the kind that compounds value over decades.
-              </p>
-              <p className="about-positioning__text">
-                Our approach mirrors the institutional discipline of India's most enduring
-                conglomerates: patient capital deployment, deep operational control, and a
-                multi-generational perspective on value creation.
-              </p>
-            </motion.div>
+            <GradientBorder>
+              <div style={{ padding: '3rem' }}>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7 }}
+                >
+                  <SectionHeader
+                    label="Our Positioning"
+                    title="Not a Startup. An Infrastructure Builder."
+                  />
+                  <p className="about-positioning__text">
+                    We do not chase viral growth or optimize for vanity metrics. S2Y Global is
+                    building integrated, vertically controlled platforms designed to become essential
+                    infrastructure — the kind that compounds value over decades.
+                  </p>
+                  <p className="about-positioning__text">
+                    Our approach mirrors the institutional discipline of India's most enduring
+                    conglomerates: patient capital deployment, deep operational control, and a
+                    multi-generational perspective on value creation.
+                  </p>
+                </motion.div>
+              </div>
+            </GradientBorder>
           </div>
         </div>
       </section>
@@ -122,15 +141,19 @@ export default function About() {
             viewport={{ once: true }}
           >
             {values.map((v, i) => (
-              <motion.div key={i} className="about-value-card" variants={itemVar}>
-                <div className="about-value-card__icon">{v.icon}</div>
-                <h3>{v.title}</h3>
-                <p>{v.desc}</p>
+              <motion.div key={i} variants={itemVar}>
+                <TiltCard className="about-value-card">
+                  <div className="about-value-card__icon">{v.icon}</div>
+                  <h3>{v.title}</h3>
+                  <p>{v.desc}</p>
+                </TiltCard>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </section>
+
+      <GlowDivider />
 
       {/* Timeline */}
       <section className="section about-timeline">
@@ -158,6 +181,12 @@ export default function About() {
         </div>
       </section>
 
+      <Marquee
+        items={['Institutional Discipline', 'Vertical Integration', 'Founder-Led', 'Sustainable Economics', 'Long-Term Vision', 'Multi-Generational Value']}
+        speed={40}
+        separator="◆"
+      />
+
       {/* CTA */}
       <section className="section">
         <div className="container text-center">
@@ -168,8 +197,8 @@ export default function About() {
             subtitle="Whether you're a partner, vendor, or talent — we'd love to connect."
           />
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', marginTop: '2rem', flexWrap: 'wrap' }}>
-            <Button to="/contact" variant="primary" icon>Contact Us</Button>
-            <Button to="/portfolio" variant="secondary" icon>Our Portfolio</Button>
+            <MagneticButton><Button to="/contact" variant="primary" icon>Contact Us</Button></MagneticButton>
+            <MagneticButton><Button to="/portfolio" variant="secondary" icon>Our Portfolio</Button></MagneticButton>
           </div>
         </div>
       </section>

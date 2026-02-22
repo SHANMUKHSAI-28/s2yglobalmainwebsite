@@ -2,6 +2,21 @@
   padding-top: 6rem;
 }
 
+.governance-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.governance-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 50% 60% at 40% 40%, rgba(201, 168, 76, 0.05), transparent 70%),
+    radial-gradient(ellipse 40% 55% at 70% 60%, rgba(15, 52, 96, 0.05), transparent);
+  pointer-events: none;
+}
+
 .governance-info {
   background: var(--color-gray-900);
 }
@@ -14,15 +29,14 @@
 
 .governance-info__card {
   padding: 2.5rem;
-  border-radius: var(--radius-lg);
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.spotlight-card.governance-info__card {
   transition: all var(--transition-base);
 }
 
-.governance-info__card:hover {
-  background: rgba(201, 168, 76, 0.04);
-  border-color: rgba(201, 168, 76, 0.12);
+.spotlight-card.governance-info__card:hover {
+  transform: translateY(-3px);
 }
 
 .governance-info__icon {

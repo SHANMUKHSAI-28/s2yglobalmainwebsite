@@ -7,6 +7,13 @@ import {
 } from 'lucide-react';
 import SectionHeader from '../components/SectionHeader';
 import Button from '../components/Button';
+import TiltCard from '../components/TiltCard';
+import GlowDivider from '../components/GlowDivider';
+import MagneticButton from '../components/MagneticButton';
+import TextReveal from '../components/TextReveal';
+import SpotlightCard from '../components/SpotlightCard';
+import GradientBorder from '../components/GradientBorder';
+import Marquee from '../components/Marquee';
 import './Portfolio.css';
 
 const containerVar = {
@@ -82,7 +89,7 @@ export default function Portfolio() {
           >
             <p className="section-label">Our Portfolio</p>
             <h1 className="section-title" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
-              Three Verticals. One Integrated Vision.
+              <TextReveal delay={0.2}>Three Verticals. One Integrated Vision.</TextReveal>
             </h1>
             <p className="section-subtitle" style={{ maxWidth: '700px' }}>
               Each company in the S2Y ecosystem operates independently while contributing to a
@@ -128,32 +135,41 @@ export default function Portfolio() {
               {brand.features.map((f, i) => (
                 <motion.div
                   key={i}
-                  className="portfolio-feature"
                   variants={itemVar}
                   style={{ '--brand-color': brand.color, '--brand-bg': brand.bgGrad, '--brand-border': brand.borderColor }}
                 >
-                  <div className="portfolio-feature__icon">{f.icon}</div>
-                  <h4>{f.title}</h4>
-                  <p>{f.desc}</p>
+                  <TiltCard className="portfolio-feature">
+                    <div className="portfolio-feature__icon">{f.icon}</div>
+                    <h4>{f.title}</h4>
+                    <p>{f.desc}</p>
+                  </TiltCard>
                 </motion.div>
               ))}
             </motion.div>
 
             {brand.positioning && (
               <motion.div
-                className="portfolio-brand__positioning"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                style={{ borderColor: brand.borderColor }}
               >
-                <p>{brand.positioning}</p>
+                <GradientBorder>
+                  <div className="portfolio-brand__positioning" style={{ borderColor: brand.borderColor }}>
+                    <p>{brand.positioning}</p>
+                  </div>
+                </GradientBorder>
               </motion.div>
             )}
           </div>
         </section>
       ))}
+
+      <Marquee
+        items={['Food Delivery', 'Grocery Delivery', 'S2Y Hubs', 'Tomato Powder', 'Moringa Powder', 'Encrypted Messaging', 'Social Discovery', 'Native Calling', 'Creator Economy']}
+        speed={38}
+        separator="◆"
+      />
 
       <section className="section">
         <div className="container text-center">
@@ -164,8 +180,8 @@ export default function Portfolio() {
             center
           />
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', marginTop: '2rem', flexWrap: 'wrap' }}>
-            <Button to="/philosophy" variant="primary" icon>Our Philosophy</Button>
-            <Button to="/contact" variant="secondary" icon>Partner With Us</Button>
+            <MagneticButton><Button to="/philosophy" variant="primary" icon>Our Philosophy</Button></MagneticButton>
+            <MagneticButton><Button to="/contact" variant="secondary" icon>Partner With Us</Button></MagneticButton>
           </div>
         </div>
       </section>

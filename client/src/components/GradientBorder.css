@@ -1,0 +1,23 @@
+.gradient-border {
+  position: relative;
+  padding: 1px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, rgba(201, 168, 76, 0.3), rgba(15, 52, 96, 0.3), rgba(139, 92, 246, 0.3), rgba(201, 168, 76, 0.3));
+  background-size: 300% 300%;
+}
+
+.gradient-border--animated {
+  animation: gradientBorderRotate 6s ease-in-out infinite;
+}
+
+.gradient-border__inner {
+  background: var(--color-gray-900);
+  border-radius: calc(var(--radius-lg) - 1px);
+  overflow: hidden;
+}
+
+@keyframes gradientBorderRotate {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

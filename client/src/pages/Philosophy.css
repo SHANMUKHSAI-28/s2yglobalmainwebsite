@@ -2,6 +2,21 @@
   padding-top: 6rem;
 }
 
+.philosophy-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.philosophy-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 50% 60% at 30% 50%, rgba(201, 168, 76, 0.06), transparent 70%),
+    radial-gradient(ellipse 40% 50% at 70% 60%, rgba(15, 52, 96, 0.06), transparent);
+  pointer-events: none;
+}
+
 .philosophy-principles {
   background: var(--color-gray-900);
 }
@@ -15,15 +30,13 @@
 
 .philosophy-card {
   padding: 2.5rem;
-  border-radius: var(--radius-lg);
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.spotlight-card.philosophy-card {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.philosophy-card:hover {
-  background: rgba(201, 168, 76, 0.04);
-  border-color: rgba(201, 168, 76, 0.15);
+.spotlight-card.philosophy-card:hover {
   transform: translateY(-4px);
 }
 

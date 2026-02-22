@@ -2,6 +2,11 @@ import { motion } from 'framer-motion';
 import { Layers, Shield, Eye, Clock, Coins, Network } from 'lucide-react';
 import SectionHeader from '../components/SectionHeader';
 import Button from '../components/Button';
+import SpotlightCard from '../components/SpotlightCard';
+import GlowDivider from '../components/GlowDivider';
+import MagneticButton from '../components/MagneticButton';
+import TextReveal from '../components/TextReveal';
+import GradientBorder from '../components/GradientBorder';
 import './Philosophy.css';
 
 const principles = [
@@ -55,7 +60,7 @@ export default function Philosophy() {
           >
             <p className="section-label">Ecosystem Philosophy</p>
             <h1 className="section-title" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
-              How We Think About Building
+              <TextReveal delay={0.2}>How We Think About Building</TextReveal>
             </h1>
             <p className="section-subtitle" style={{ maxWidth: '700px' }}>
               Our philosophy is not just a set of principles — it is the operating system that
@@ -64,6 +69,8 @@ export default function Philosophy() {
           </motion.div>
         </div>
       </section>
+
+      <GlowDivider />
 
       <section className="section philosophy-principles">
         <div className="container">
@@ -80,15 +87,19 @@ export default function Philosophy() {
             viewport={{ once: true }}
           >
             {principles.map((p, i) => (
-              <motion.div key={i} className="philosophy-card" variants={itemVar}>
-                <div className="philosophy-card__icon">{p.icon}</div>
-                <h3>{p.title}</h3>
-                <p>{p.description}</p>
+              <motion.div key={i} variants={itemVar}>
+                <SpotlightCard className="philosophy-card">
+                  <div className="philosophy-card__icon">{p.icon}</div>
+                  <h3>{p.title}</h3>
+                  <p>{p.description}</p>
+                </SpotlightCard>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </section>
+
+      <GlowDivider />
 
       <section className="section philosophy-quote">
         <div className="container">
@@ -118,8 +129,8 @@ export default function Philosophy() {
             center
           />
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', marginTop: '2rem', flexWrap: 'wrap' }}>
-            <Button to="/portfolio" variant="primary" icon>Our Portfolio</Button>
-            <Button to="/technology" variant="secondary" icon>Technology</Button>
+            <MagneticButton><Button to="/portfolio" variant="primary" icon>Our Portfolio</Button></MagneticButton>
+            <MagneticButton><Button to="/technology" variant="secondary" icon>Technology</Button></MagneticButton>
           </div>
         </div>
       </section>
