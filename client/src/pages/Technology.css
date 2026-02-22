@@ -1,0 +1,121 @@
+.tech-page {
+  padding-top: 6rem;
+}
+
+.tech-stack {
+  background: var(--color-gray-900);
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.tech-card {
+  padding: 2.5rem;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.tech-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-gold), transparent);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.tech-card:hover {
+  background: rgba(201, 168, 76, 0.04);
+  border-color: rgba(201, 168, 76, 0.12);
+  transform: translateY(-3px);
+}
+
+.tech-card:hover::after {
+  opacity: 1;
+}
+
+.tech-card__icon {
+  color: var(--color-gold);
+  margin-bottom: 1.25rem;
+}
+
+.tech-card h3 {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.tech-card p {
+  font-size: 0.9rem;
+  color: var(--color-gray-400);
+  line-height: 1.7;
+}
+
+/* Architecture layers */
+.tech-arch__inner {
+  background: var(--color-gray-900);
+  border-radius: var(--radius-xl);
+  padding: 4rem;
+}
+
+.tech-arch__layers {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tech-arch__layer {
+  padding: 1.5rem 2rem;
+  border-left: 3px solid;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  transition: all var(--transition-base);
+}
+
+.tech-arch__layer:hover {
+  background: rgba(255, 255, 255, 0.04);
+  transform: translateX(4px);
+}
+
+.tech-arch__layer h4 {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.tech-arch__layer p {
+  font-size: 0.85rem;
+  color: var(--color-gray-400);
+}
+
+@media (max-width: 1024px) {
+  .tech-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .tech-grid {
+    grid-template-columns: 1fr;
+  }
+  .tech-arch__inner {
+    padding: 2.5rem 1.5rem;
+  }
+}
