@@ -12,6 +12,7 @@ import GlowDivider from '../components/GlowDivider';
 import MagneticButton from '../components/MagneticButton';
 import Marquee from '../components/Marquee';
 import SpotlightCard from '../components/SpotlightCard';
+import SEO from '../components/SEO';
 import './Home.css';
 
 const portfolioCards = [
@@ -71,6 +72,10 @@ export default function Home() {
 
   return (
     <main>
+      <SEO 
+        title="S2Y Global | Creating Businesses Through Innovation"
+        description="S2Y Global Private Limited is building the foundational infrastructure for the next decade across food systems and digital ecosystems."
+      />
       {/* ===== HERO ===== */}
       <section className="hero" ref={heroRef}>
         <ParticleField />

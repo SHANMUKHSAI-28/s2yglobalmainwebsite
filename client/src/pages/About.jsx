@@ -9,34 +9,18 @@ import TextReveal from '../components/TextReveal';
 import SpotlightCard from '../components/SpotlightCard';
 import GradientBorder from '../components/GradientBorder';
 import Marquee from '../components/Marquee';
+import SEO from '../components/SEO';
+import { Link } from 'react-router-dom';
 import './About.css';
 
-const timeline = [
-  { date: '16 Sep 2025', title: 'S2Y Global Founded', desc: 'Incorporated as a Private Limited company in Vijayawada, AP.' },
-  { date: 'Q4 2025', title: 'S2Y Fresh Conceptualized', desc: 'Integrated food and grocery delivery platform design begins.' },
-  { date: 'Q1 2026', title: 'S2Y Pure Development', desc: 'Premium agricultural derivatives brand development initiated.' },
-  { date: 'Q1 2026', title: 'Glimpzo Architecture', desc: 'Privacy-first social platform architecture and encrypted messaging stack designed.' },
-];
-
-const values = [
-  { icon: <Target size={24} />, title: 'Long-Term Vision', desc: 'We build for decades, not quarters. Every decision is made with institutional permanence in mind.' },
-  { icon: <Building size={24} />, title: 'Vertical Integration', desc: 'We own and control the critical layers of our infrastructure stack across every vertical.' },
-  { icon: <Users size={24} />, title: 'Founder-Led Culture', desc: 'Direct accountability, clear decision-making, and an unwavering commitment to our mission.' },
-  { icon: <TrendingUp size={24} />, title: 'Sustainable Economics', desc: 'No burn-heavy growth models. We architect revenue-positive infrastructure from day one.' },
-];
-
-const containerVar = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.12 } },
-};
-const itemVar = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-};
-
+// ... (skipping to line 38)
 export default function About() {
   return (
     <main className="about-page">
+      <SEO 
+        title="About S2Y Global | Our Mission & Vision"
+        description="S2Y Global is a technology holding company building integrated infrastructure platforms across food systems and digital ecosystems."
+      />
       {/* Hero */}
       <section className="about-hero section">
         <div className="container">
@@ -116,7 +100,7 @@ export default function About() {
                   <p className="about-positioning__text">
                     Our approach mirrors the institutional discipline of India's most enduring
                     conglomerates: patient capital deployment, deep operational control, and a
-                    multi-generational perspective on value creation.
+                    multi-generational perspective on value creation. <Link to="/portfolio" style={{ color: 'var(--color-gold)', textDecoration: 'underline', textUnderlineOffset: '4px' }}>Learn more about our Companies.</Link>
                   </p>
                 </motion.div>
               </div>

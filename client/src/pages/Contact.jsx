@@ -4,6 +4,7 @@ import { Mail, MapPin, Phone, Send, ArrowRight } from 'lucide-react';
 import SectionHeader from '../components/SectionHeader';
 import TextReveal from '../components/TextReveal';
 import GlowDivider from '../components/GlowDivider';
+import SEO from '../components/SEO';
 import './Contact.css';
 
 export default function Contact() {
@@ -13,22 +14,29 @@ export default function Contact() {
     subject: '',
     message: '',
   });
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState('idle');
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // In a real app, this would send to a backend
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    setStatus('submitting');
+    // Simulate API call
+    setTimeout(() => {
+      setStatus('success');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+      setTimeout(() => setStatus('idle'), 5000);
+    }, 1500);
   };
 
   return (
     <main className="contact-page">
+      <SEO 
+        title="Contact Us | S2Y Global"
+        description="Get in touch with S2Y Global Private Limited for partnerships, inquiries, and more."
+      />
       <section className="section contact-hero">
         <div className="container">
           <motion.div

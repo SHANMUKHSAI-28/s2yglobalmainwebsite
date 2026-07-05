@@ -6,6 +6,7 @@ import SpotlightCard from '../components/SpotlightCard';
 import GlowDivider from '../components/GlowDivider';
 import MagneticButton from '../components/MagneticButton';
 import TextReveal from '../components/TextReveal';
+import SEO from '../components/SEO';
 import './Careers.css';
 
 const openings = [
@@ -13,35 +14,28 @@ const openings = [
     title: 'Full-Stack Engineer',
     team: 'S2Y Fresh',
     location: 'Vijayawada / Remote',
-    type: 'Full-time',
+    type: 'Full-Time',
     icon: <Code2 size={20} />,
   },
   {
-    title: 'Mobile Developer (React Native)',
-    team: 'Glimpzo',
-    location: 'Vijayawada / Remote',
-    type: 'Full-time',
-    icon: <Code2 size={20} />,
-  },
-  {
-    title: 'Backend Engineer',
-    team: 'Platform',
-    location: 'Vijayawada / Remote',
-    type: 'Full-time',
-    icon: <Code2 size={20} />,
-  },
-  {
-    title: 'Operations Lead',
+    title: 'Logistics Operations Lead',
     team: 'S2Y Fresh',
     location: 'Vijayawada',
-    type: 'Full-time',
+    type: 'Full-Time',
     icon: <TrendingUp size={20} />,
   },
   {
-    title: 'Product Designer',
-    team: 'Design',
+    title: 'React Native Developer',
+    team: 'Glimpzo',
     location: 'Remote',
-    type: 'Full-time / Contract',
+    type: 'Full-Time',
+    icon: <Code2 size={20} />,
+  },
+  {
+    title: 'Agri-Sourcing Specialist',
+    team: 'S2Y Pure',
+    location: 'Andhra Pradesh',
+    type: 'Full-Time',
     icon: <Users size={20} />,
   },
 ];
@@ -62,6 +56,10 @@ const itemVar = {
 export default function Careers() {
   return (
     <main className="careers-page">
+      <SEO 
+        title="Careers | S2Y Global"
+        description="Join S2Y Global. Explore career opportunities across S2Y Fresh, S2Y Pure, and Glimpzo."
+      />
       <section className="section careers-hero">
         <div className="container">
           <motion.div

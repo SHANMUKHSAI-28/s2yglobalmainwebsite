@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import SEO from '../components/SEO';
 import { Layers, Shield, Eye, Clock, Coins, Network } from 'lucide-react';
 import SectionHeader from '../components/SectionHeader';
 import Button from '../components/Button';
@@ -51,6 +52,10 @@ const itemVar = {
 export default function Philosophy() {
   return (
     <main className="philosophy-page">
+      <SEO 
+        title="Our Philosophy | S2Y Global"
+        description="The core values and philosophy driving S2Y Global Private Limited: Sustainable Economics, Institutional Discipline, and Vertical Integration."
+      />
       <section className="section philosophy-hero">
         <div className="container">
           <motion.div

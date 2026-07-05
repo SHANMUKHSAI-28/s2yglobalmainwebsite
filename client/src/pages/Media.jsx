@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import SEO from '../components/SEO';
 import { ArrowUpRight, Calendar } from 'lucide-react';
 import SectionHeader from '../components/SectionHeader';
 import TextReveal from '../components/TextReveal';
@@ -53,6 +54,10 @@ const itemVar = {
 export default function Media() {
   return (
     <main className="media-page">
+      <SEO 
+        title="News & Updates | S2Y Global"
+        description="Stay updated with the latest news, announcements, and progress from S2Y Global Private Limited."
+      />
       <section className="section media-hero">
         <div className="container">
           <motion.div

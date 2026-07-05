@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import SEO from '../components/SEO';
 import { Server, Lock, Zap, Cloud, Code2, Database } from 'lucide-react';
 import SectionHeader from '../components/SectionHeader';
 import Button from '../components/Button';
@@ -7,6 +8,7 @@ import GradientBorder from '../components/GradientBorder';
 import GlowDivider from '../components/GlowDivider';
 import MagneticButton from '../components/MagneticButton';
 import TextReveal from '../components/TextReveal';
+import { Link } from 'react-router-dom';
 import './Technology.css';
 
 const techAreas = [
@@ -50,7 +52,11 @@ const itemVar = {
 
 export default function Technology() {
   return (
-    <main className="tech-page">
+    <main className="technology-page">
+      <SEO 
+        title="Technology | S2Y Global"
+        description="The technology stack powering S2Y Global: Secure Backends, Edge Infrastructure, Encrypted Storage, and Logistics Engines."
+      />
       <section className="section tech-hero">
         <div className="container">
           <motion.div
@@ -62,11 +68,11 @@ export default function Technology() {
             <h1 className="section-title" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
               <TextReveal delay={0.2}>Built for Scale, Designed for Trust</TextReveal>
             </h1>
-            <p className="section-subtitle" style={{ maxWidth: '700px' }}>
-              Our technology stack is the backbone of the S2Y ecosystem. Every architectural
-              decision is made with security, scalability, and long-term maintainability as
-              non-negotiable priorities.
-            </p>
+              <p className="section-subtitle" style={{ maxWidth: '720px' }}>
+                We believe software is a compounding asset. At S2Y Global, technology is not just 
+                an enabler—it is the foundational layer upon which our food systems and digital 
+                platforms scale efficiently and securely. <Link to="/portfolio" style={{ color: 'var(--color-gold)', textDecoration: 'underline', textUnderlineOffset: '4px' }}>See how our capabilities support our Companies.</Link>
+              </p>
           </motion.div>
         </div>
       </section>

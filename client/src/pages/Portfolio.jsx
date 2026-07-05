@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import SEO from '../components/SEO';
 import { 
   Truck, ShoppingCart, Warehouse, Users, 
   Leaf, Globe, Package, FlaskConical,
@@ -80,6 +81,10 @@ const brands = [
 export default function Portfolio() {
   return (
     <main className="portfolio-page">
+      <SEO 
+        title="Companies | S2Y Global"
+        description="Explore S2Y Global's portfolio of companies: S2Y Fresh, S2Y Pure, and Glimpzo."
+      />
       <section className="section portfolio-hero">
         <div className="container">
           <motion.div

@@ -5,6 +5,7 @@ import SpotlightCard from '../components/SpotlightCard';
 import GlowDivider from '../components/GlowDivider';
 import TextReveal from '../components/TextReveal';
 import GradientBorder from '../components/GradientBorder';
+import SEO from '../components/SEO';
 import './Governance.css';
 
 const compliancePrinciples = [
@@ -16,15 +17,19 @@ const compliancePrinciples = [
   'Stakeholder communication and accountability frameworks',
 ];
 
-const containerVar = { hidden: {}, visible: { transition: { staggerChildren: 0.08 } } };
+const containerVar = { hidden: {}, visible: { transition: { staggerChildren: 0.15 } } };
 const itemVar = {
-  hidden: { opacity: 0, x: -20 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.4 } },
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
 export default function Governance() {
   return (
     <main className="governance-page">
+      <SEO 
+        title="Governance & Compliance | S2Y Global"
+        description="S2Y Global's corporate governance framework, compliance principles, and entity information."
+      />
       <section className="section governance-hero">
         <div className="container">
           <motion.div
