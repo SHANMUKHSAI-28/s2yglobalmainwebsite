@@ -20,8 +20,8 @@ const footerLinks = {
   pureStore: [
     { label: 'S2Y Pure Store', to: '/pure' },
     { label: 'Moringa Powder', to: '/pure' },
-    { label: 'Tomato Powder', to: '/pure' },
-    { label: 'Beetroot Powder', to: '/pure' },
+    { label: 'Customer Account', to: '/account' },
+    { label: 'Order Tracking', to: '/account' },
   ],
   resources: [
     { label: 'Technology', to: '/technology' },

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ShieldCheck, CheckCircle2, ArrowRight, ArrowLeft, Loader2, AlertCircle, ShoppingBag } from 'lucide-react';
 import { useCart } from '../context/CartContext';
+import { useAuth } from '../context/AuthContext';
 import { createOrder, createRazorpayOrder, verifyPayment } from '../services/pureApi';
 import { openRazorpayCheckout } from '../utils/razorpay';
 import './CheckoutModal.css';
@@ -27,6 +28,8 @@ export default function CheckoutModal() {
     clearCart,
   } = useCart();
 
+  const { user, setAuth } = useAuth();
+
   const [step, setStep] = useState(1); // 1 = Address, 2 = Review & Pay, 3 = Confirmed
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
@@ -42,6 +45,23 @@ export default function CheckoutModal() {
     state: 'Andhra Pradesh',
     pincode: '',
   });
+
+  useEffect(() => {
+    if (user) {
+      const defaultAddr = user.addresses?.find((a) => a.isDefault) || user.addresses?.[0];
+      setFormData((prev) => ({
+        ...prev,
+        name: prev.name || user.name || '',
+        email: prev.email || user.email || '',
+        phone: prev.phone || user.phone || '',
+        line1: prev.line1 || defaultAddr?.line1 || '',
+        line2: prev.line2 || defaultAddr?.line2 || '',
+        city: prev.city || defaultAddr?.city || '',
+        state: prev.state || defaultAddr?.state || 'Andhra Pradesh',
+        pincode: prev.pincode || defaultAddr?.pincode || '',
+      }));
+    }
+  }, [user]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -124,6 +144,9 @@ export default function CheckoutModal() {
           try {
             // 5. Verify payment on server
             const verifyResult = await verifyPayment(paymentResponse);
+            if (verifyResult?.user) {
+              setAuth(verifyResult.user);
+            }
             setConfirmedOrder({
               orderId: serverOrderId,
               total,

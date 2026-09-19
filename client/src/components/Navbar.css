@@ -215,3 +215,43 @@
   background: var(--color-pure) !important;
 }
 
+.navbar__account-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--color-white);
+  font-size: 0.82rem;
+  font-weight: 500;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.navbar__account-btn:hover {
+  background: rgba(132, 204, 22, 0.15);
+  border-color: var(--color-pure);
+  color: var(--color-pure);
+}
+
+.navbar__account-name {
+  max-width: 90px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 600px) {
+  .navbar__account-name {
+    display: none;
+  }
+  .navbar__account-btn {
+    padding: 0;
+    width: 38px;
+    height: 38px;
+    justify-content: center;
+  }
+}
+

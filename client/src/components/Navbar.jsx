@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ShoppingBag } from 'lucide-react';
+import { Menu, X, ShoppingBag, User } from 'lucide-react';
 import { useCart } from '../context/CartContext';
+import { useAuth } from '../context/AuthContext';
 import './Navbar.css';
 
 const navLinks = [
@@ -23,6 +24,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
   const { totalItems, setIsCartOpen } = useCart();
+  const { user, isAuthenticated, openAuthModal } = useAuth();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -61,6 +63,26 @@ export default function Navbar() {
           </div>
 
           <div className="navbar__actions">
+            {isAuthenticated ? (
+              <Link
+                to="/account"
+                className="navbar__account-btn"
+                title={`Logged in as ${user?.name}`}
+              >
+                <User size={16} />
+                <span className="navbar__account-name">{user?.name?.split(' ')[0]}</span>
+              </Link>
+            ) : (
+              <button
+                className="navbar__account-btn"
+                onClick={() => openAuthModal('login')}
+                title="Sign In / Register"
+              >
+                <User size={16} />
+                <span className="navbar__account-name">Sign In</span>
+              </button>
+            )}
+
             <button
               className="navbar__cart-btn"
               onClick={() => setIsCartOpen(true)}

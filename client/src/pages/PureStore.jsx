@@ -167,7 +167,7 @@ export default function PureStore() {
             center
           />
 
-          <div className="pure-grid">
+          <div className={`pure-grid ${products.length === 1 ? 'pure-grid--single' : ''}`}>
             {products.map((product) => {
               const activeVariantId = selectedVariants[product._id];
               const activeVariant = product.weights?.find((w) => w._id === activeVariantId) || product.weights?.[0];
