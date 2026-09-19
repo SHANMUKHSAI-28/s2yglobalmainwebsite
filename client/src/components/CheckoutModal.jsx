@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ShieldCheck, CheckCircle2, ArrowRight, ArrowLeft, Loader2, AlertCircle, ShoppingBag } from 'lucide-react';
 import { useCart } from '../context/CartContext';
