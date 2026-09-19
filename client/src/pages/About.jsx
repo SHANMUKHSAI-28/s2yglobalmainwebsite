@@ -13,7 +13,29 @@ import SEO from '../components/SEO';
 import { Link } from 'react-router-dom';
 import './About.css';
 
-// ... (skipping to line 38)
+const timeline = [
+  { date: '16 Sep 2025', title: 'S2Y Global Founded', desc: 'Incorporated as a Private Limited company in Vijayawada, AP.' },
+  { date: 'Q4 2025', title: 'S2Y Fresh Conceptualized', desc: 'Integrated food and grocery delivery platform design begins.' },
+  { date: 'Q1 2026', title: 'S2Y Pure Development', desc: 'Premium agricultural derivatives brand development initiated.' },
+  { date: 'Q1 2026', title: 'Glimpzo Architecture', desc: 'Privacy-first social platform architecture and encrypted messaging stack designed.' },
+];
+
+const values = [
+  { icon: <Target size={24} />, title: 'Long-Term Vision', desc: 'We build for decades, not quarters. Every decision is made with institutional permanence in mind.' },
+  { icon: <Building size={24} />, title: 'Vertical Integration', desc: 'We own and control the critical layers of our infrastructure stack across every vertical.' },
+  { icon: <Users size={24} />, title: 'Founder-Led Culture', desc: 'Direct accountability, clear decision-making, and an unwavering commitment to our mission.' },
+  { icon: <TrendingUp size={24} />, title: 'Sustainable Economics', desc: 'No burn-heavy growth models. We architect revenue-positive infrastructure from day one.' },
+];
+
+const containerVar = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.12 } },
+};
+const itemVar = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
+
 export default function About() {
   return (
     <main className="about-page">
