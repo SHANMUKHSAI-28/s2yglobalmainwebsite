@@ -71,6 +71,7 @@ function PageWrapper({ children }) {
       initial="initial"
       animate="animate"
       exit="exit"
+      style={{ position: 'relative', width: '100%' }}
     >
       {children}
     </motion.div>

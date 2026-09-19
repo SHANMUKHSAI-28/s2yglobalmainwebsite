@@ -84,7 +84,7 @@ export default function Footer() {
               <h4 className="footer__col-title">{key}</h4>
               <ul className="footer__col-links">
                 {links.map((link) => (
-                  <li key={link.to}>
+                  <li key={link.label}>
                     <Link to={link.to} className="footer__col-link">
                       {link.label}
                       <ArrowUpRight size={12} />

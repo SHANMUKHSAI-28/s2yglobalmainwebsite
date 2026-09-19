@@ -1,4 +1,4 @@
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://s2ypureserver.vercel.app/api';
+const API_BASE_URL = import.meta.env.VITE_API_URL || '/api/pure';
 
 /**
  * Auth Service matching S2Y Pure authentication engine:
