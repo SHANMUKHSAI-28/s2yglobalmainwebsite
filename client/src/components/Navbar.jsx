@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ShoppingBag } from 'lucide-react';
+import { useCart } from '../context/CartContext';
 import './Navbar.css';
 
 const navLinks = [
   { to: '/', label: 'Home' },
   { to: '/about', label: 'About' },
   { to: '/portfolio', label: 'Portfolio' },
+  { to: '/pure', label: 'S2Y Pure', highlight: true },
   { to: '/philosophy', label: 'Philosophy' },
   { to: '/technology', label: 'Technology' },
   { to: '/governance', label: 'Governance' },
@@ -20,6 +22,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
+  const { totalItems, setIsCartOpen } = useCart();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -50,20 +53,32 @@ export default function Navbar() {
               <Link
                 key={link.to}
                 to={link.to}
-                className={`navbar__link ${location.pathname === link.to ? 'navbar__link--active' : ''}`}
+                className={`navbar__link ${location.pathname === link.to ? 'navbar__link--active' : ''} ${link.highlight ? 'navbar__link--highlight' : ''}`}
               >
                 {link.label}
               </Link>
             ))}
           </div>
 
-          <button
-            className="navbar__toggle"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="navbar__actions">
+            <button
+              className="navbar__cart-btn"
+              onClick={() => setIsCartOpen(true)}
+              aria-label="Shopping Cart"
+              title="View Cart"
+            >
+              <ShoppingBag size={18} />
+              {totalItems > 0 && <span className="navbar__cart-badge">{totalItems}</span>}
+            </button>
+
+            <button
+              className="navbar__toggle"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </motion.nav>
 
@@ -86,7 +101,7 @@ export default function Navbar() {
                 >
                   <Link
                     to={link.to}
-                    className={`mobile-menu__link ${location.pathname === link.to ? 'mobile-menu__link--active' : ''}`}
+                    className={`mobile-menu__link ${location.pathname === link.to ? 'mobile-menu__link--active' : ''} ${link.highlight ? 'navbar__link--highlight' : ''}`}
                   >
                     {link.label}
                   </Link>

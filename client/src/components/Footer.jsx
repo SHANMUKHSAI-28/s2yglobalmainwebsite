@@ -12,21 +12,28 @@ import './Footer.css';
 
 const footerLinks = {
   company: [
-    { label: 'About', to: '/about' },
+    { label: 'About Us', to: '/about' },
     { label: 'Portfolio', to: '/portfolio' },
     { label: 'Philosophy', to: '/philosophy' },
     { label: 'Governance', to: '/governance' },
+  ],
+  pureStore: [
+    { label: 'S2Y Pure Store', to: '/pure' },
+    { label: 'Moringa Powder', to: '/pure' },
+    { label: 'Tomato Powder', to: '/pure' },
+    { label: 'Beetroot Powder', to: '/pure' },
   ],
   resources: [
     { label: 'Technology', to: '/technology' },
     { label: 'Media & Updates', to: '/media' },
     { label: 'Careers', to: '/careers' },
-    { label: 'Contact', to: '/contact' },
+    { label: 'Contact Support', to: '/contact' },
   ],
-  portfolio: [
-    { label: 'S2Y Fresh', to: '/portfolio#fresh' },
-    { label: 'S2Y Pure', to: '/portfolio#pure' },
-    { label: 'Glimpzo', to: '/portfolio#glimpzo' },
+  legal: [
+    { label: 'Terms of Service', to: '/terms' },
+    { label: 'Privacy Policy', to: '/privacy' },
+    { label: 'Cancellation & Refund', to: '/refund-policy' },
+    { label: 'Shipping & Delivery', to: '/shipping-policy' },
   ],
 };
 

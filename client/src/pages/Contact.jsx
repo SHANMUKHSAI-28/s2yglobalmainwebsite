@@ -78,20 +78,27 @@ export default function Contact() {
                   <div>
                     <span className="contact-info__label">Email</span>
                     <a href="mailto:contact@s2yglobal.com">contact@s2yglobal.com</a>
+                    <span style={{ display: 'block', fontSize: '0.8rem', color: 'var(--color-gray-400)' }}>
+                      Support: <a href="mailto:support@s2ypure.com" style={{ color: 'var(--color-pure)' }}>support@s2ypure.com</a>
+                    </span>
                   </div>
                 </div>
                 <div className="contact-info__item">
                   <MapPin size={20} />
                   <div>
-                    <span className="contact-info__label">Headquarters</span>
+                    <span className="contact-info__label">Registered Entity & Headquarters</span>
+                    <strong style={{ color: '#fff' }}>S2Y Global Private Limited</strong>
                     <span>Vijayawada, Andhra Pradesh, India</span>
                   </div>
                 </div>
                 <div className="contact-info__item">
                   <Phone size={20} />
                   <div>
-                    <span className="contact-info__label">Phone</span>
-                    <span>Available upon request</span>
+                    <span className="contact-info__label">Direct Helpline & Support</span>
+                    <a href="tel:+919063091887" style={{ color: 'var(--color-pure)', fontWeight: 600 }}>+91 90630 91887</a>
+                    <span style={{ display: 'block', fontSize: '0.78rem', color: 'var(--color-gray-400)' }}>
+                      Mon – Sat: 9:00 AM – 6:00 PM IST
+                    </span>
                   </div>
                 </div>
               </div>
@@ -178,7 +185,7 @@ export default function Contact() {
                 Send Message
               </motion.button>
 
-              {submitted && (
+              {status === 'success' && (
                 <motion.div
                   className="contact-form__success"
                   initial={{ opacity: 0, y: 10 }}

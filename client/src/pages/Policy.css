@@ -1,0 +1,115 @@
+/* Policy Pages CSS */
+.policy-page {
+  padding: 8rem 0 5rem;
+  min-height: 100vh;
+  background: var(--color-black);
+}
+
+.policy-card {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  padding: clamp(2rem, 5vw, 3.5rem);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.policy-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.policy-tag {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-pure);
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.policy-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  color: var(--color-white);
+  margin-bottom: 0.75rem;
+}
+
+.policy-date {
+  font-size: 0.85rem;
+  color: var(--color-gray-400);
+}
+
+.policy-content {
+  color: var(--color-gray-300);
+  line-height: 1.8;
+  font-size: 0.95rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.policy-section h2 {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  color: var(--color-white);
+  margin-bottom: 0.85rem;
+}
+
+.policy-section h3 {
+  font-size: 1.1rem;
+  color: var(--color-pure);
+  margin: 1rem 0 0.5rem;
+}
+
+.policy-section p {
+  margin-bottom: 0.85rem;
+}
+
+.policy-section ul,
+.policy-section ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.policy-section li {
+  list-style: disc;
+}
+
+.policy-highlight-box {
+  background: rgba(132, 204, 22, 0.05);
+  border: 1px solid rgba(132, 204, 22, 0.2);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  margin: 1.25rem 0;
+}
+
+.policy-highlight-box h4 {
+  color: var(--color-pure);
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.policy-merchant-box {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.policy-merchant-box h3 {
+  color: var(--color-white);
+  font-size: 1.15rem;
+  margin-bottom: 0.75rem;
+}
+
+.policy-merchant-box p {
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+}

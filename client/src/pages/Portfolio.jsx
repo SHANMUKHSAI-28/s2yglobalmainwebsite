@@ -128,6 +128,17 @@ export default function Portfolio() {
               <span className="portfolio-brand__status" style={{ borderColor: brand.borderColor, color: brand.color }}>
                 {brand.status}
               </span>
+
+              {brand.id === 'pure' && (
+                <div style={{ marginTop: '1.5rem', display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}>
+                  <Button to="/pure" variant="primary" icon>
+                    Shop S2Y Pure Products (From ₹249)
+                  </Button>
+                  <span style={{ fontSize: '0.85rem', color: 'var(--color-gray-400)', display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
+                    <Shield size={14} style={{ color: 'var(--color-pure)' }} /> Instant Razorpay Checkout & Free Shipping
+                  </span>
+                </div>
+              )}
             </motion.div>
 
             <motion.div
