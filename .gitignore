@@ -28,3 +28,4 @@ yarn-debug.log*
 *.sln
 *.sw?
 *.local
+.vercel
